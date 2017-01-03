@@ -18,3 +18,5 @@
 Route::get('/', 'DeveloperController@developerHome');
 
 Auth::routes();
+
+Route::get('/home', 'ForumController@forumHome');

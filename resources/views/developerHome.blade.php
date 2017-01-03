@@ -16,4 +16,4 @@
                   <a>University of Huddersfield</a>
               </div>
             </div><br>
-            <a>View Website</a>
+            <a href="http://localhost:8000/home">View Website</a>
