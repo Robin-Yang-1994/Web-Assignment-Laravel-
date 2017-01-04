@@ -20,3 +20,7 @@ Route::get('/', 'DeveloperController@developerHome');
 Auth::routes();
 
 Route::get('/home', 'ForumController@forumHome');
+
+Route::get('/home', 'AnimeController@show');
+
+Route::get('home/{anime}', 'AnimeController@animeInformation');

@@ -51,3 +51,16 @@
                 </div>
             </div>
         </nav>
+
+@extends('layout')
+@section('content')
+                <h1>All Cars</h1>
+              @foreach ($animes as $anime)
+                <div>
+                  <a class="list-group-item" href="/home/{{$anime->id}}">{{$anime->name}}</a>
+                </div>
+              </div>
+              @endforeach
+
+        </div>
+@endsection
