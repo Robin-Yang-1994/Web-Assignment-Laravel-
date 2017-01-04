@@ -1,4 +1,4 @@
-<html lang="en">
+{{-- <html lang="en">
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -31,9 +31,7 @@
                     </button>
 
                     <!-- Branding Image -->
-                    <a class="navbar-brand" href="http://localhost:8000/home">
-                        Laravel
-                    </a>
+                    <a class="navbar-brand" href="http://localhost:8000/home">Laravel</a>
                 </div>
 
                 <div class="collapse navbar-collapse" id="app-navbar-collapse">
@@ -50,11 +48,11 @@
                     </ul>
                 </div>
             </div>
-        </nav>
-
+        </nav> --}}
 @extends('layout')
+@extends('layouts.app')
 @section('content')
-                <h1>All Cars</h1>
+                <h1>All Anime</h1>
               @foreach ($animes as $anime)
                 <div>
                   <a class="list-group-item" href="/home/{{$anime->id}}">{{$anime->name}}</a>

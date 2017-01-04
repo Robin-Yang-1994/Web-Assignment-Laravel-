@@ -24,3 +24,7 @@ Route::get('/home', 'ForumController@forumHome');
 Route::get('/home', 'AnimeController@show');
 
 Route::get('home/{anime}', 'AnimeController@animeInformation');
+
+Route::get('/dashboard', 'HomeController@index');
+
+//Route::post('auth/logout', 'Auth\LoginController@getLogout');

@@ -78,7 +78,7 @@
             </div>
         </nav>
 
-        @yield('content')
+      @yield('contents') {{--changes name here so it JS will not duplicate results--}}
     </div>
 
     <!-- Scripts -->
