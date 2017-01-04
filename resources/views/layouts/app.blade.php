@@ -8,7 +8,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Laravel') }}</title>
+    <title>Love Anime</title>
 
     <!-- Styles -->
     <link href="/css/app.css" rel="stylesheet">
@@ -36,7 +36,7 @@
 
                     <!-- Branding Image -->
                     <a class="navbar-brand" href="{{ url('/home') }}">
-                        {{ config('app.name', 'Laravel') }}
+                        Love Anime 
                     </a>
                 </div>
 

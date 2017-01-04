@@ -49,16 +49,37 @@
                 </div>
             </div>
         </nav> --}}
+
+
 @extends('layout')
 @extends('layouts.app')
 @section('content')
-                <h1>All Anime</h1>
+
+  <div class="container">
+  <form action="/search" method="get" role="search">
+    {{csrf_field() }}
+      <div class="input-group">
+        <input type="text" class="list-group-item" name="searchA" placeholder="Search Anime">
+          <button type="submit" class="btn btn-primary">Search</button>
+      </div>
+  </form></div>
+
+      @if(isset($anime))
+        @foreach ($anime as $animes)
+          {{$animes->name}}
+
+        @endforeach
+      @endif
+
+            @if(isset($animes))
+                <h1>Anime</h1>
               @foreach ($animes as $anime)
                 <div>
                   <a class="list-group-item" href="/home/{{$anime->id}}">{{$anime->name}}</a>
                 </div>
               </div>
               @endforeach
+            @endif
 
         </div>
 @endsection

@@ -1,6 +1,6 @@
 <html lang="en">
 
-<title> Layout </title>
+<title> Love Anime </title>
 
 <link rel="stylesheet" href="/css/style.css">
 

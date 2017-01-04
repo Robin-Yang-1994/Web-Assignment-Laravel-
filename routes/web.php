@@ -15,16 +15,18 @@
 //     return view('welcome');
 // });
 
-Route::get('/', 'DeveloperController@developerHome');
+Route::get('/', 'DeveloperController@developerHome'); //home page
 
-Auth::routes();
+Auth::routes(); //user login or registration authentication
 
-Route::get('/home', 'ForumController@forumHome');
+Route::get('/home', 'ForumController@forumHome'); //home page for forum
 
-Route::get('/home', 'AnimeController@show');
+Route::get('/home', 'AnimeController@show'); //show all anime from database
 
-Route::get('home/{anime}', 'AnimeController@animeInformation');
+Route::get('home/{anime}', 'AnimeController@animeInformation'); //get anime id for information
 
-Route::get('/dashboard', 'HomeController@index');
+Route::get('/dashboard', 'HomeController@index');// defualt view logged in
 
 //Route::post('auth/logout', 'Auth\LoginController@getLogout');
+
+Route::get('/search', 'AnimeController@searchAnime');
