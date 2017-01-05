@@ -29,4 +29,6 @@ Route::get('/dashboard', 'HomeController@index');// defualt view logged in
 
 //Route::post('auth/logout', 'Auth\LoginController@getLogout');
 
-Route::get('/search', 'AnimeController@searchAnime');
+Route::get('/search', 'AnimeController@searchAnime'); //search facility
+
+Route::post('home/{anime}/note', 'AnimeController@addAnimeInformation');

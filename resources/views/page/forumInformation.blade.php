@@ -7,18 +7,17 @@
 
   <h2>{{$anime->name}} {{$anime->year}}</h2>
 
+		@foreach ($anime->note as $notes)
 
-		{{-- @foreach ($car->informations as $information)
-
-		    <li class="list-group-item">{{$information->body}}
-				<a href="#" style="float:right"> Username: {{$information->user->username}} </a></li>
+		    <li class="list-group-item">{{$notes->body}}
+				<a href="#" style="float:right"> Username: {{$notes->user->name}} </a></li>
 
 		  @endforeach
-				</ul> --}}
+				</ul>
 
 				<hr>
 					<h3>Add new content to forum</h3>
-				{{--<form method="POST" action="/animes/{{$anime->id}}/notes">--}}
+				<form method="POST" action="/home/{{$anime->id}}/note">
 						{{csrf_field()}}
 						<textarea name="body" rows="4" cols="40"></textarea>
 						<br/>

@@ -15,8 +15,8 @@ class CreateAnimeNotesTable extends Migration
     {
         Schema::create('anime_notes', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('anime_id')->unsigned()->unique();
-            $table->integer('user_id')->unsigned()->unique();
+            $table->integer('anime_id')->unsigned()->index();
+            $table->integer('user_id')->unsigned()->index();
             $table->string('body');
             $table->timestamps();
         });
