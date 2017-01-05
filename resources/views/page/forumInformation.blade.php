@@ -9,11 +9,13 @@
 
 		@foreach ($anime->note as $notes)
 
-		    <li class="list-group-item">{{$notes->body}}
+		    <ul>
+				<a method="POST" href="/home/{{$notes->id}}/edit" class="list-group-item">{{$notes->body}}</a>
 				<a href="#" style="float:right"> Username: {{$notes->user->name}} </a></li>
+			</ul>
 
 		  @endforeach
-				</ul>
+
 
 				<hr>
 					<h3>Add new content to forum</h3>

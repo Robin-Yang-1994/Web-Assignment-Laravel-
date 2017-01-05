@@ -10,15 +10,15 @@ class AnimeNote extends Model
 
   public function anime (){
 
-    return $this->belongsTo(Anime::class);
+    return $this->belongsTo(Anime::class); // relation to anime class from animeNote
   }
 
   public function user (){
 
-    return $this->belongsTo(User::Class);
+    return $this->belongsTo(User::Class); // relation to user class from animeNote
   }
 
-  public function from (User $user)
+  public function from (User $user) // define user_id
   {
       $this->user_id = $user->id;
   }

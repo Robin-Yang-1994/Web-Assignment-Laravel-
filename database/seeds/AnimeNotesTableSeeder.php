@@ -2,7 +2,7 @@
 
 use Illuminate\Database\Seeder;
 
-class AnimeNoteSeederTable extends Seeder
+class AnimeNotesTableSeeder extends Seeder
 {
     /**
      * Run the database seeds.
