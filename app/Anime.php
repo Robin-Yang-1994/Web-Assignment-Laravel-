@@ -4,7 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Animes extends Model
+class Anime extends Model
 {
     //
 }

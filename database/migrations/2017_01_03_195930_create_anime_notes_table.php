@@ -13,7 +13,7 @@ class CreateAnimeNotesTable extends Migration
      */
     public function up()
     {
-        Schema::create('animeNotes', function (Blueprint $table) {
+        Schema::create('anime_notes', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('anime_id')->unsigned()->unique();
             $table->integer('user_id')->unsigned()->unique();
@@ -29,6 +29,6 @@ class CreateAnimeNotesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('animeNotes');
+        Schema::dropIfExists('anime_notes');
     }
 }
