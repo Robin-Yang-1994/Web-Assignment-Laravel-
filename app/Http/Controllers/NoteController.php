@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 use App\AnimeNote;
-
+use App\Anime;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Input;
 
@@ -10,18 +10,21 @@ class NoteController extends Controller
 {
   public function editNotes(AnimeNote $notes){
 
-    return view('note.editNote',compact('notes'));
+    return view('note.editNote',compact('notes')); // pass note data to edit view
   }
 
   public function updateNotes(Request $request, AnimeNote $notes){
 
-  $this->validate($request,['body'=>'required']);  
+  $this->validate($request,['body'=>'required']);  //empty body validation
+  $notes->update($request->all()); //get all arguements passed through the view
+  //$request->session()->flash('alert-success', 'Update saved');
 
-  $notes->update($request->all());
+  return back(); // refresh page
+  }
 
-  $request->session()->flash('alert-success', 'Update saved');
+  public function deleteNotes(Request $request, AnimeNote $notes){
 
-  return back();
-
+  $notes->delete($request->all());
+  return AnimeController::show();
   }
 }

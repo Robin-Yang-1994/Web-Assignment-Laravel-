@@ -21,7 +21,14 @@
 				@endforeach
 			</ul>
 		@endif
+  </form>
   </div>
 
+  <div class="form-group2">
+  <form method="POST" action="/delete/{{$notes->id}}">
+    {{csrf_field()}}
+      <button type="Delete" class="btn btn-primary">Delete Post</button>
+    </form>
+  </div>
 
 @stop

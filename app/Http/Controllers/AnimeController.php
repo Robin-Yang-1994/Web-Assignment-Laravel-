@@ -9,7 +9,7 @@ use Illuminate\Support\Facades\Input;
 
 class AnimeController extends Controller
 {
-  public function show(){
+  public static function show(){
 
     $animes = Anime ::all();
     return view('page.forumHome', compact('animes'));
@@ -24,29 +24,19 @@ class AnimeController extends Controller
 
   public function addAnimeInformation(Request $request, Anime $anime){
 
-  // $information = new Information;
-  // $information->body = $request->body;
-  // $car->informations()->save($information);
-  // return back();
-  $this->validate($request,['body'=>'required']);
-  $animeNote = new AnimeNote($request->all());
-
+  $this->validate($request,['body'=>'required']); // validation for body
+  $animeNote = new AnimeNote($request->all()); // get all passed request
   //$information->by(Auth::user());
-
   $anime->addAnimeNote($animeNote, 1); //takes user id 1
-
-  return back();
-
+  return back(); // refresh and update page
 }
 
-  public function searchAnime(){
+  public function searchAnime(Request $request){
 
-    $searchA = \Request::get('searchA');
-    $anime = Anime::where('name','LIKE','%'.$searchA.'%');
-    return view('page.forumHome', compact('anime'));
-    //return view('page.forumHome')->withDetails($result)->withQuery('$search');
-    //else return view('page.forumHome')->withMessage('No result, Please try again');
+    $this->validate($request,['anime'=>'required']); // validation for body
+    $search = $request['anime']; // get request from search box (name)
+    $result = Anime::where('name','LIKE',"%$search%")->get(); // compare with database
+    return view('page.forumHome')->with('result', $result); // send information to view
   }
-
 
 }

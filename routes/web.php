@@ -29,10 +29,12 @@ Route::get('/dashboard', 'HomeController@index');// defualt view logged in
 
 //Route::post('auth/logout', 'Auth\LoginController@getLogout');
 
-Route::get('/search', 'AnimeController@searchAnime'); //search facility
+Route::post('/home/search', 'AnimeController@searchAnime'); //search facility
 
 Route::post('home/{anime}/note', 'AnimeController@addAnimeInformation'); // add information to anime
 
 Route::get('home/{notes}/edit', 'NoteController@editNotes'); //edit show anime notes
 
 Route::patch('edit/{notes}', 'NoteController@updateNotes'); // update anime notes
+
+Route::post('delete/{notes}', 'NoteController@deleteNotes'); // delete anime notes

@@ -56,20 +56,27 @@
 @section('content')
 
   <div class="container">
-  <form action="/search" method="get" role="search">
-    {{csrf_field() }}
+  <form action="/home/search" method="post" role="search">
+    {{csrf_field()}}
       <div class="input-group">
-        <input type="text" class="list-group-item" name="searchA" placeholder="Search Anime">
+        <input type="text" class="list-group-item" name="anime" placeholder="Search Anime">
           <button type="submit" class="btn btn-primary">Search</button>
       </div>
   </form></div>
 
-      @if(isset($anime))
-        @foreach ($anime as $animes)
-          {{$animes->name}}
-
+      @if(isset($result))
+        @if(count ($result)== 0)
+          <p class="list-group-item">No results found</p>
+        @elseif (count ($result) >= 1)
+        @foreach ($result as $value)
+          <a class="list-group-item" >{{$value->name}}</a>
         @endforeach
+        @endif
       @endif
+
+         @foreach ($errors->all() as $error)
+          <a class="list-group-item">{{$error}}</a>
+        @endforeach
 
             @if(isset($animes))
                 <h1>Anime</h1>
@@ -80,6 +87,8 @@
               </div>
               @endforeach
             @endif
+
+
 
         </div>
 @endsection
