@@ -27,7 +27,9 @@ Route::get('home/{anime}', 'AnimeController@animeInformation'); //get anime id f
 
 Route::get('/dashboard', 'HomeController@index');// defualt view logged in
 
-//Route::post('auth/logout', 'Auth\LoginController@getLogout');
+// Route::post('/logout', 'Auth\LoginController@getLogout');
+
+//CRUD
 
 Route::post('/home/search', 'AnimeController@searchAnime'); //search facility
 
@@ -38,3 +40,7 @@ Route::get('home/{notes}/edit', 'NoteController@editNotes'); //edit show anime n
 Route::patch('edit/{notes}', 'NoteController@updateNotes'); // update anime notes
 
 Route::post('delete/{notes}', 'NoteController@deleteNotes'); // delete anime notes
+
+//
+
+Route::get('/profile', 'AccountController@showProfile');

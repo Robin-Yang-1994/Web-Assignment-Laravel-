@@ -36,7 +36,7 @@
 
                     <!-- Branding Image -->
                     <a class="navbar-brand" href="{{ url('/home') }}">
-                        Love Anime 
+                        Love Anime
                     </a>
                 </div>
 
@@ -60,6 +60,15 @@
 
                                 <ul class="dropdown-menu" role="menu">
                                     <li>
+                                      <a href="{{ url('/profile') }}"
+                                          onclick="event.preventDefault();
+                                                   document.getElementById('profile-form').submit();">
+                                          Profile
+                                      </a>
+                                      <form id="profile-form" action="{{ url('/profile') }}" method="Get" style="display: none;">
+                                          {{ csrf_field() }}
+                                      </form>
+
                                         <a href="{{ url('/logout') }}"
                                             onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
