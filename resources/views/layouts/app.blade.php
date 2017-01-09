@@ -65,7 +65,7 @@
                                                    document.getElementById('profile-form').submit();">
                                           Profile
                                       </a>
-                                      <form id="profile-form" action="{{ url('/profile') }}" method="Get" style="display: none;">
+                                      <form id="profile-form" action="{{ url('/profile') }}" method="POST" style="display: none;">
                                           {{ csrf_field() }}
                                       </form>
 
