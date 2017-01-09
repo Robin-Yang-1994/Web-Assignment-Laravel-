@@ -17,8 +17,6 @@ class NoteController extends Controller
 
   $this->validate($request,['body'=>'required']);  //empty body validation
   $notes->update($request->all()); //get all arguements passed through the view
-  //$request->session()->flash('alert-success', 'Update saved');
-
   return back(); // refresh page
   }
 

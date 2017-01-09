@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 use App\User;
+use App\AnimeNote;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 
@@ -14,5 +16,13 @@ class AccountController extends Controller
     else{
       return AnimeController::show();
     }
+    $this->myNotes();
+  }
+
+  public function myNotes(){
+
+    $user = Auth::user()->id;
+    $own = AnimeNote::where('user_id', '=', $user)->get();
+    return view('accounts.viewAccounts',compact ('own'));
   }
 }

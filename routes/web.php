@@ -11,10 +11,6 @@
 |
 */
 
-// Route::get('/', function () {
-//     return view('welcome');
-// });
-
 Route::get('/', 'DeveloperController@developerHome'); //home page
 
 Auth::routes(); //user login or registration authentication
@@ -29,7 +25,7 @@ Route::get('/dashboard', 'HomeController@index');// defualt view logged in
 
 // Route::post('/logout', 'Auth\LoginController@getLogout');
 
-//CRUD
+//CRUD - Create-Read-Update-Delete
 
 Route::post('/home/search', 'AnimeController@searchAnime'); //search facility
 
@@ -44,3 +40,5 @@ Route::post('delete/{notes}', 'NoteController@deleteNotes'); // delete anime not
 //
 
 Route::post('/profile', 'AccountController@showProfile'); // See profile settings
+
+//Route::post('/profile', 'AccountController@myNotes'); // show notes poster by the user
