@@ -11,7 +11,7 @@ class AnimeController extends Controller
 {
   public static function show(){
 
-    $animes = Anime ::all();
+    $animes = Anime ::orderBy('created_at', 'desc')->take(5)->get();
     return view('page.forumHome', compact('animes'));
   }
 

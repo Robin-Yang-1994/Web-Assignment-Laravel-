@@ -43,4 +43,4 @@ Route::post('delete/{notes}', 'NoteController@deleteNotes'); // delete anime not
 
 //
 
-Route::get('/profile', 'AccountController@showProfile');
+Route::get('/profile', 'AccountController@showProfile'); // See profile settings

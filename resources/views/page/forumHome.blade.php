@@ -69,7 +69,7 @@
           <p class="list-group-item">No results found</p>
         @elseif (count ($result) >= 1)
         @foreach ($result as $value)
-          <a class="list-group-item" >{{$value->name}}</a>
+          <a class="list-group-item" href="/home/{{$value->id}}">{{$value->name}}</a> {{--runs same method as below--}}
         @endforeach
         @endif
       @endif
@@ -79,7 +79,7 @@
         @endforeach
 
             @if(isset($animes))
-                <h1>Anime</h1>
+                <h1>Latest Animes</h1>
               @foreach ($animes as $anime)
                 <div>
                   <a class="list-group-item" href="/home/{{$anime->id}}">{{$anime->name}}</a>
@@ -87,8 +87,14 @@
               </div>
               @endforeach
             @endif
-
-
-
         </div>
+      </br>
+
+      <div align="center">
+        <h1>Anime News</h1>
+        <script type="text/javascript"
+        src="http://output53.rssinclude.com/output?type=js&amp;id=1115579&amp;hash=8c053379a29528cb5581632ff999e9f2">
+        </script>
+      </div>
+
 @endsection
