@@ -16,13 +16,11 @@ class AccountController extends Controller
     else{
       return AnimeController::show();
     }
-    $this->myNotes();
   }
 
   public function myNotes(){
-
     $user = Auth::user()->id;
     $own = AnimeNote::where('user_id', '=', $user)->get();
-    return view('accounts.viewAccounts',compact ('own'));
+    return view('accounts.viewAccounts')->with('own', $own);
   }
 }

@@ -66,7 +66,7 @@
 
       @if(isset($result))
         @if(count ($result)== 0)
-          <p class="list-group-item">No results found</p>
+          <a class="list-group-item">No results found</a>
         @elseif (count ($result) >= 1)
         @foreach ($result as $value)
           <a class="list-group-item" href="/home/{{$value->id}}">{{$value->name}}</a> {{--runs same method as below--}}

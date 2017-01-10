@@ -38,6 +38,9 @@
                     <a class="navbar-brand" href="{{ url('/home') }}">
                         Love Anime
                     </a>
+                    <a class="navbar-brand" href="{{ url('/images') }}">
+                        Anime Gallery
+                    </a>
                 </div>
 
                 <div class="collapse navbar-collapse" id="app-navbar-collapse">
