@@ -2,12 +2,14 @@
 
 namespace App\Http\Controllers;
 use App\Picture;
+use Carbon\Carbon;
 use Illuminate\Support\Facades\Input;
 use Illuminate\Http\Request;
 
 class AnimePictureController extends Controller
 {
     public function upload(){
+      $this->show();
       return view('gallery.images');
     }
 
@@ -15,27 +17,26 @@ class AnimePictureController extends Controller
         $picture = new Picture();
         $this->validate($request, ['file' => 'required','filename' => 'required']);
 
-        $picture->filename = $request->title;
+        $picture->filename = $request->filename;
 
 		if($request->hasFile('file')) {
             $file = Input::file('file');
-            // $timestamp = str_replace([' ', ':'], '-', Carbon::now()->toDateTimeString());
-            //
-            // $name = $timestamp. '-' .$file->getClientOriginalName();
+             $timestamp = str_replace([' ', ':'], '-', Carbon::now()->toDateTimeString());
+
+             $name = $timestamp. '-' .$file->getClientOriginalName();
 
             $picture->filepath = $file;
 
-            $file->move(public_path().'/pictures/', $name);
+            $file->move(public_path().'/pictures/', $file);
         }
         $picture->save();
 
-        dd($picture);
-
-        //return $this->create()->with('success', 'Image Uploaded Successfully');
+        return back()->with('success', 'Image Uploaded Successfully');
 	}
 
+    public function show(Request $request){
 
-    public function show(){
-
+      $pictures = Picture::all();
+      return view('gallery.images', compact('pictures'));
     }
 }
