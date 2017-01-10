@@ -4,7 +4,7 @@
 @foreach($pictures as $picture)
     <div class="table table-bordered bg-success">
       {{-- <a href="{!! '/pictures/'.$picture->filename !!}"></a> --}}
-      <img src="{{asset('pictures/'.$picture->filepath) }}"/>
+      <img src="{{url("/pictures/php4mp810") }}"/>
       <p>{{$picture->filename}}</p>
     </div>
 @endforeach
