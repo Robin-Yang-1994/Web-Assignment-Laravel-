@@ -1,13 +1,13 @@
 @extends('layout')
 
+
 <h1 class="well well-lg">All Image List</h1>
 @foreach($pictures as $picture)
     <div class="table table-bordered bg-success">
-      {{-- <img scr="{!! '/pictures/'.$picture->filepath !!}"> --}}
       <a target="_blank" href="{{$picture->filepath.'.jpg'}}">
       <img style="width:300px; height:200px;" src="{{$picture->filepath.'.jpg'}}"/></div></br>
-      <a>Download:{{$picture->filename}}</a>
-    </div>
+      <a href="{{$picture->filepath.'.jpg'}}" download>Download: {{$picture->filename}}</a>
+    </div> {{--finds and display images saved in the public tmp folder--}}
 @endforeach
 
 <form action="/upload" method="post" enctype="multipart/form-data">
@@ -20,12 +20,14 @@
     @if(count($errors))
     <ul>
       @foreach ($errors->all() as $error)
-        {{$error}}
+        <p>{{$error}}</p>
       @endforeach
     </ul>
   @endif
 </form>
 
 @if(isset($success))
-    <div class="alert alert-success"> {{$success}} </div>
+    <div class="alert alert-success">
+      <p>{{$sucess()}}</p>
+    </div>
 @endif

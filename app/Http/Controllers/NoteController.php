@@ -6,11 +6,11 @@ use App\Anime;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Input;
 
-class NoteController extends Controller
+class NoteController extends Controller // CRUD on notes
 {
   public function editNotes(AnimeNote $notes){
 
-    return view('note.editNote',compact('notes')); // pass note data to edit view
+    return view('note.editNote',compact('notes')); // pass note data from DB to edit view
   }
 
   public function updateNotes(Request $request, AnimeNote $notes){
@@ -22,7 +22,7 @@ class NoteController extends Controller
 
   public function deleteNotes(Request $request, AnimeNote $notes){
 
-  $notes->delete($request->all());
-  return AnimeController::show();
+  $notes->delete($request->all()); // delete the notes selected in the view
+  return AnimeController::show(); // show the anime home view
   }
 }

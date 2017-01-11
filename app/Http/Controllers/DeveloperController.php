@@ -8,6 +8,6 @@ class DeveloperController extends Controller
 {
   public function developerHome()
   {
-      return view('developerHome');
+      return view('developerHome'); // home page 
   }
 }
