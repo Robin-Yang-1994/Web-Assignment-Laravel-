@@ -27,7 +27,7 @@ class AnimePictureController extends Controller
 
             $picture->filepath = $file;
 
-            $file->move(public_path().'/pictures/', $file);
+            $file->move(public_path().'/tmp/', $file.'.jpg');
         }
         $picture->save();
 

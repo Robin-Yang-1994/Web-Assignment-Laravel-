@@ -3,9 +3,10 @@
 <h1 class="well well-lg">All Image List</h1>
 @foreach($pictures as $picture)
     <div class="table table-bordered bg-success">
-      {{-- <a href="{!! '/pictures/'.$picture->filename !!}"></a> --}}
-      <img src="{{url("/pictures/php4mp810") }}"/>
-      <p>{{$picture->filename}}</p>
+      {{-- <img scr="{!! '/pictures/'.$picture->filepath !!}"> --}}
+      <a target="_blank" href="{{$picture->filepath.'.jpg'}}">
+      <img style="width:300px; height:200px;" src="{{$picture->filepath.'.jpg'}}"/></div></br>
+      <a>Download:{{$picture->filename}}</a>
     </div>
 @endforeach
 
