@@ -37,6 +37,10 @@ Route::patch('edit/{notes}', 'NoteController@updateNotes'); // update anime note
 
 Route::post('delete/{notes}', 'NoteController@deleteNotes'); // delete anime notes
 
+Route::get('/add', 'AnimeController@showAddForm'); // add anime form
+
+Route::post('add/anime', 'AnimeController@addAnime'); // add anime by auth user
+
 //
 
 Route::post('/profile', 'AccountController@showProfile'); // See profile settings

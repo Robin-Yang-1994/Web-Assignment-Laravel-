@@ -3,7 +3,6 @@
 
 @section('content')
 
-  {{-- <a href="http://localhost:8000/home">Home</a> --}}
 <div align="center" class="form-group">
 
     <h1>Edit Note</h1>
@@ -28,7 +27,7 @@
   <div class="form-group2">
   <form method="POST" action="/delete/{{$notes->id}}">
     {{csrf_field()}}
-      <button type="Delete" class="btn btn-primary">Delete Post</button>
+      <button type="Delete" class="btn btn-primary" style="width:120px;">Delete Post</button>
     </form>
   </div>
 @endif

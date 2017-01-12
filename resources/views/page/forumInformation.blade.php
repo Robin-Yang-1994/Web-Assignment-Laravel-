@@ -25,7 +25,7 @@
 							{{csrf_field()}}
 							<textarea name="body" rows="4" cols="40"></textarea>
 									<br/>
-							<button type="Add" class="btn btn-primary">Add</button>
+							<button type="Add" class="btn btn-primary" style="width:120px;">Add</button>
 								@if(count($errors))
 									<ul>
 										@foreach ($errors->all() as $error)

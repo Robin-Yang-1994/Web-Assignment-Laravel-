@@ -56,13 +56,18 @@
                             <li><a href="{{ url('/login') }}">Login</a></li>
                             <li><a href="{{ url('/register') }}">Register</a></li>
                         @else
+
+                          <div class="navbar-header">
+                            <a class="navbar-brand" href="{{ url('/add') }}">Add New Anime</a>
+                          </div>
+
                             <li class="dropdown">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
                                     {{ Auth::user()->name }} <span class="caret"></span>
                                 </a>
-
                                 <ul class="dropdown-menu" role="menu">
                                     <li>
+
                                       <a href="{{ url('/profile') }}"
                                           onclick="event.preventDefault();
                                                    document.getElementById('profile-form').submit();">

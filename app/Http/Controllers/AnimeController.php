@@ -28,7 +28,7 @@ class AnimeController extends Controller
   $this->validate($request,['body'=>'required']); // validation for empty body (field)
   $animeNote = new AnimeNote($request->all()); // get all passed request
   $user = Auth::user()->id; // get the user id from authenticated user session
-  $anime->addAnimeNote($animeNote, $user); //takes user id 1 (for testing)
+  $anime->addAnimeNote($animeNote, $user); //takes user id and anime note from request
   return back(); // refresh and update page
 }
 
@@ -40,4 +40,18 @@ class AnimeController extends Controller
     return view('page.forumHome')->with('result', $result); // send information to view
   }
 
+  public function showAddForm(){
+
+    return view('page.addform');
+  }
+
+  public function addAnime(Request $request, Anime $anime){
+
+    $this->validate($request,['name' =>'required','year' =>'required']); // validation for empty body (field)
+    $anime = new Anime($request->all()); // get all passed request
+    $anime->save();
+    // $user = Auth::user()->id; // get the user id from authenticated user session
+    // $anime->addAnimeDetail($new); //takes user id and anime from request
+    return AnimeController::show(); // refresh and update page
+  }
 }
