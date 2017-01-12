@@ -2,23 +2,22 @@
 @extends('layouts.app')
 @section('content')
 
-<h1>Account details</h1>
-@if(isset($user))
-<p>Name: {{$user->name}}</p>
-<p>Email: {{$user->email}}</p>
-@endif
 
-<form method="POST" action="/profile/notes">
-  {{csrf_field()}}
-  <button type="Add" class="btn btn-lg btn-info collapsed" data-toggle="collapse"
-          data-target="#demo">Show MyPost</button> {{--need to check on this--}}
-    <div id="demo" class="collapse">
+<div align="center">
+
+  <h1>Account details</h1>
+    <p>Name: {{$user->name}}</p>
+    <p>Email: {{$user->email}}</p>
+
+    <h1>My Posts</h1>
       @if(isset($own))
         @foreach ($own as $notes)
-          <p>{{$notes->body}}</p>
-    @endforeach
-  @endif
-  </div>
-</form>
+          <li>
+            <a href="/home/{{$notes->id}}/edit">{{$notes->body}}</a>
+          </li>
+        @endforeach
+      @endif
+</div>
+
 
 @endsection

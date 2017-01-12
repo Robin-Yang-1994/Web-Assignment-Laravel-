@@ -3,14 +3,16 @@
 @section('content')
 
 
-	<h1>Anime Information</h1>
+	<h1 align="center">Anime Information</h1>
 
-  <h2>{{$anime->name}} {{$anime->year}}</h2>
+  <h2 align="center">Anime: {{$anime->name}}
+		<br>
+		 Year: {{$anime->year}}</h2>
 
 		@foreach ($anime->note as $notes)
 		    <ul>
 				<a method="POST" href="/home/{{$notes->id}}/edit">{{$notes->body}}</a>
-				<a href="#" style="float:right; padding-right:50px;">Posted By: {{$notes->user->name}}</a>
+				<p style="float:right; padding-right:50px;">Posted By: {{$notes->user->name}} On: {{$notes->created_at}}</p>
 			</ul>
 	  @endforeach
 

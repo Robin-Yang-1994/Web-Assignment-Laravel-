@@ -27,7 +27,7 @@ class AnimeController extends Controller
 
   $this->validate($request,['body'=>'required']); // validation for empty body (field)
   $animeNote = new AnimeNote($request->all()); // get all passed request
-  $user = Auth::user()->id;
+  $user = Auth::user()->id; // get the user id from authenticated user session
   $anime->addAnimeNote($animeNote, $user); //takes user id 1 (for testing)
   return back(); // refresh and update page
 }

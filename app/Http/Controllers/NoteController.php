@@ -10,6 +10,8 @@ class NoteController extends Controller // CRUD on notes
 {
   public function editNotes(AnimeNote $notes){
 
+    $notes->load('anime');
+
     return view('note.editNote',compact('notes')); // pass note data from DB to edit view
   }
 

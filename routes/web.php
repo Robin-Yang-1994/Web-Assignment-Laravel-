@@ -41,8 +41,6 @@ Route::post('delete/{notes}', 'NoteController@deleteNotes'); // delete anime not
 
 Route::post('/profile', 'AccountController@showProfile'); // See profile settings
 
-Route::post('/profile/notes', 'AccountController@myNotes'); // show notes poster by the user
-
 Route::get('/images', 'AnimePictureController@show'); // display all images and pages
 
 Route::post('/upload', 'AnimePictureController@store'); // saves to database
