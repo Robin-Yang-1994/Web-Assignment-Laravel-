@@ -2,6 +2,11 @@
 @extends('layouts.app')
 @section('content')
 
+@if(Session::has('message'))
+  <div class="alert">
+    {{Session::get('message')}}
+  </div>
+@endif
   <div class="container">
   <form action="/home/search" method="post" role="search">
     {{csrf_field()}}
@@ -10,7 +15,6 @@
           <button type="submit" class="btn btn-primary">Search</button>
       </div>
   </form></div>
-
       @if(isset($result))
         @if(count ($result)== 0)
           <a class="list-group-item">No results found</a>
@@ -18,6 +22,7 @@
         @foreach ($result as $value)
           <a class="list-group-item" href="/home/{{$value->id}}">{{$value->name}}</a> {{--runs same method as below--}}
         @endforeach
+        <p>Total Results:{{count($result)}}</p>
         @endif
       @endif
 
