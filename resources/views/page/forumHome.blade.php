@@ -6,7 +6,7 @@
   <form action="/home/search" method="post" role="search">
     {{csrf_field()}}
       <div class="input-group">
-        <input type="text" class="list-group-item" name="anime" placeholder="Search Anime">
+        <input type="text" class="list-group-item" name="name" placeholder="Search Anime">
           <button type="submit" class="btn btn-primary">Search</button>
       </div>
   </form></div>

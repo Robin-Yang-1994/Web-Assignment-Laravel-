@@ -34,8 +34,8 @@ class AnimeController extends Controller
 
   public function searchAnime(Request $request){
 
-    $this->validate($request,['anime'=>'required']); // validation for body
-    $search = $request['anime']; // get request from search box (name)
+    $this->validate($request,['name'=>'required']); // validation for body
+    $search = $request['name']; // get request from search box (name)
     $result = Anime::where('name','LIKE',"%$search%")->get(); // compare with database
     return view('page.forumHome')->with('result', $result); // send information to view
   }

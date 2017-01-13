@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Anime extends Model
 {
-  protected $fillable = ['anime', 'year'];
+  protected $fillable = ['name', 'year'];
 
   public function note (){
 
