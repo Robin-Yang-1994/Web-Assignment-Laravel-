@@ -2,7 +2,7 @@
 
 <title> Love Anime </title>
 
-<link rel="stylesheet" href="/css/style.css">
+<link rel="stylesheet" href="/css/style.css"> {{--get css file and view body--}}
 
     <head></head>
 

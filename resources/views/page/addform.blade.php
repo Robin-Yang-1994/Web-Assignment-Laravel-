@@ -15,9 +15,10 @@
 
     <button type="Add" class="btn btn-primary" style="width:120px;">Add</button>
   </form><br/>
+
     @if(count($errors))
         @foreach ($errors->all() as $error)
-        <p>{{$error}}</p>
+        <p>{{$error}}</p> {{-- show error message if found required in the controller--}}
         @endforeach
     @endif
   </div>

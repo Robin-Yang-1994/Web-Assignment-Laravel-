@@ -6,7 +6,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class Anime extends Model
 {
-  protected $fillable = ['name', 'year'];
+  protected $fillable = ['name', 'year']; // database validated that requires certain fields to be filled it
+                                          // protect from empty fields
 
   public function note (){
 
@@ -15,13 +16,8 @@ class Anime extends Model
 
   public function addAnimeNote(AnimeNote $animeNote, $userID){
 
-  $animeNote->user_id = $userID; //define a user_id object
-  return $this->note()->save($animeNote);
+  $animeNote->user_id = $userID; //defining user_id object
+  return $this->note()->save($animeNote); // add note to anime note table
   }
-
-  // public function addAnimeDetail(Anime $anime){
-  //
-  // return $this->save($anime);
-  // }
 
 }

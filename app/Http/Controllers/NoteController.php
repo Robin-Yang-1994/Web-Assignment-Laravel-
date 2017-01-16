@@ -6,11 +6,11 @@ use App\Anime;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Input;
 
-class NoteController extends Controller // CRUD on notes
+class NoteController extends Controller
 {
   public function editNotes(AnimeNote $notes){
 
-    $notes->load('anime');
+    $notes->load('anime'); // note table loads anime table for access to both tables
 
     return view('note.editNote',compact('notes')); // pass note data from DB to edit view
   }

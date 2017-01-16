@@ -8,15 +8,15 @@ use Illuminate\Http\Request;
 
 class AnimePictureController extends Controller
 {
-    public function upload(){ // show the view and run the show method below
-      $this->show();
+    public function upload(){ // show the view
+      $this->show(); // run the show method below
       return view('gallery.images');
     }
 
     public function store(Request $request){
         $picture = new Picture(); // create new Picture DB object
         $this->validate($request, ['file' => 'required','filename' => 'required']);
-        // some validation
+        // some validation on any empty fields
         $picture->filename = $request->filename; // defining filename as request name
 
 		if($request->hasFile('file')) { // check if the file from request exist
@@ -31,11 +31,10 @@ class AnimePictureController extends Controller
             // storing images to public folder in tmp and add .jpg extension to file name
         }
         $picture->save();// save the picture object
+        return back()->with('success', 'Image Uploaded Successfully'); // return an sucess message
+	}                                                                    // it will auto show latest update
 
-        return back()->with('success', 'Image Uploaded Successfully');
-	}
-
-    public function show(Request $request){
+    public function show (Request $request){ // show anime pictures to view
       $pictures = Picture::all(); // get all pictures from database and return data to view
       return view('gallery.images', compact('pictures'));
     }

@@ -3,15 +3,16 @@
 @section('content')
 
 <h1>All Image List</h1>
-@foreach($pictures as $picture)
+@foreach($pictures as $picture) {{--loop out all images in database--}}
     <div class="form-group">
       <a target="_blank" href="{{$picture->filepath.'.jpg'}}">
       <img style="width:300px; height:200px;" src="{{$picture->filepath.'.jpg'}}"/></div>
       <a href="{{$picture->filepath.'.jpg'}}" download>Download: {{$picture->filename}}</a>
+            {{--show picture and hyperlink image to be downloadable--}}
     </div> {{--finds and display images saved in the public tmp folder--}}
 @endforeach
 
-<form action="/upload" method="post" enctype="multipart/form-data">
+<form action="/upload" method="post" enctype="multipart/form-data"> {{--post image with multiple data form--}}
   {{csrf_field()}}
     <h3>Select image to upload:</h3>
     <input type="file" name="file">
@@ -20,14 +21,14 @@
     <input type="submit" value="Upload Image" name="submit">
     @if(count($errors))
     <ul>
-      @foreach ($errors->all() as $error)
+      @foreach ($errors->all() as $error) {{--show error if found such as empty field--}}
         <p>{{$error}}</p>
       @endforeach
     </ul>
   @endif
 </form>
 
-@if(isset($success))
+@if(isset($success)) {{--show upload completion message--}}
     <div class="alert alert-success">
       <p>{{$sucess()}}</p>
     </div>

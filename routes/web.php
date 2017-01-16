@@ -43,8 +43,8 @@ Route::post('add/anime', 'AnimeController@addAnime'); // add anime by auth user
 
 //
 
-Route::post('/profile', 'AccountController@showProfile'); // See profile settings
+Route::post('/profile', 'AccountController@showProfile'); // See profile account and posts
 
-Route::get('/images', 'AnimePictureController@show'); // display all images and pages
+Route::get('/images', 'AnimePictureController@show'); // display all images and pictures
 
-Route::post('/upload', 'AnimePictureController@store'); // saves to database
+Route::post('/upload', 'AnimePictureController@store'); // saves pictures to database

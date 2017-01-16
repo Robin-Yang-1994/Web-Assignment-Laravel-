@@ -10,7 +10,7 @@ use Illuminate\Support\Facades\Auth;
 
 class AnimeController extends Controller
 {
-  public static function show(){
+  public static function show(){ // show all results
 
     $animes = Anime ::orderBy('created_at', 'desc')->take(5)->get();
     return view('page.forumHome', compact('animes')); // get anime from DB and show 5 most recent data
@@ -36,13 +36,13 @@ class AnimeController extends Controller
 
     $this->validate($request,['name'=>'required']); // validation for body
     $search = $request['name']; // get request from search box (name)
-    $result = Anime::where('name','LIKE',"%$search%")->get(); // compare with database
-    return view('page.forumHome')->with('result', $result); // send information to view
+    $result = Anime::where('name','LIKE',"%$search%")->get(); // compare with database results
+    return view('page.forumHome')->with('result', $result); // send results to view
   }
 
   public function showAddForm(){
 
-    return view('page.addform');
+    return view('page.addform'); // return all form
   }
 
   public function addAnime(Request $request, Anime $anime){

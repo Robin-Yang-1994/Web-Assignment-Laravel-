@@ -14,7 +14,7 @@ class AccountController extends Controller
     if(Auth::check()){ // check auth to pass authenticated user details
       $user = Auth::user()->id; // define user_id from authenticated user
       $own = AnimeNote::where('user_id', '=', $user)->get(); // find notes associated with user_id
-    return view('accounts.viewAccounts')->with('user', Auth::user())->with('own', $own);
+    return view('accounts.viewAccounts')->with('user', Auth::user())->with('own', $own); // passing 2 arguments to view
     }
     else{
       return AnimeController::show(); // wont allow user see view account view for security

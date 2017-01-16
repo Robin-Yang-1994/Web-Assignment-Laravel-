@@ -4,16 +4,13 @@
 
 @section('content')
 
-<div class="content">
+<div class="content" align="center">
               <div class="title m-b-md">
-                  Developer Information
-              </div><br/>
-
-              <div class="links">
-                  <a>Robin Yang</a>
-                  <a>U1352883</a>
-                  <a>BSc Computing</a>
-                  <a>University of Huddersfield</a>
+                  <h1>Student Information</h1> {{--student information with link to actual assignment website--}}
               </div>
-            </div><br>
-            <a href="http://localhost:8000/home">View Website</a>
+                  <p>Robin Yang</p>
+                  <p>U1352883</p>
+                  <p>BSc Computing</p>
+                  <p>University of Huddersfield</p>
+                  <a href="http://localhost:8000/home">View Website</a>
+</div>
