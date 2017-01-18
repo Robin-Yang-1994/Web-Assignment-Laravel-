@@ -2,17 +2,24 @@
 
 namespace App\Http\Controllers;
 use App\Anime;
+use App\AnimeNote;
 use DB;
 use Illuminate\Http\Request;
 
 class DataController extends Controller
 {
-    public function showData(){
+    public function showData()
+    {
 
-      $data = Anime::select(DB::raw("count(name) as anime_id"))
-      ->orderBy("created_at")
+      $data = AnimeNote::select(DB::raw("count(*) as count", "anime_id"))
+
+      ->orderBy("anime_id")
+
+      ->groupBy(DB::raw("(anime_id)"))
+
       ->get()->toArray();
-      $data = array_column($data, 'anime_id');
+
+      $data = array_column($data, 'count');
 
       return view('data.showstatistics')->with('data',json_encode($data,JSON_NUMERIC_CHECK));
     }

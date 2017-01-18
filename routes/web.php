@@ -51,4 +51,4 @@ Route::post('/upload', 'AnimePictureController@store'); // saves pictures to dat
 
 // Data Analysis
 
-Route::get('/statistics', 'DataController@showData'); // show data from database
+Route::get('/statistics', 'DataController@showData'); // show data stats from database
