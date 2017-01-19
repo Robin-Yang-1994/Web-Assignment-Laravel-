@@ -48,3 +48,7 @@ Route::post('/profile', 'AccountController@showProfile'); // See profile account
 Route::get('/images', 'AnimePictureController@show'); // display all images and pictures
 
 Route::post('/upload', 'AnimePictureController@store'); // saves pictures to database
+
+// Data Analysis
+
+Route::get('/statistics', 'DataController@showData'); // show data stats from database
