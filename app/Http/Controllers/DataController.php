@@ -6,7 +6,7 @@ use App\AnimeNote;
 use DB;
 use Illuminate\Http\Request;
 
-class DataController extends Controller
+class DataController extends Controller // Branched feature and merged to master
 {
     public function showData()
     {
