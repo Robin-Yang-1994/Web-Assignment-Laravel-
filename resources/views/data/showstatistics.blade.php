@@ -14,24 +14,23 @@
   <script type="text/javascript" src="https://github.com/chartjs/Chart.js/releases/download/v2.4.0/Chart.bundle.js"></script>
   <script>
 
-      var anime_name = <?php echo $result; ?>;
-      var anime_data = <?php echo $count; ?>;
-
+      var anime_name = <?php echo $result; ?>; // set variable
+      var anime_data = <?php echo $count; ?>; // set variable
 
       var barChartData = {
 
-          labels: anime_name,
+          labels: anime_name, // anime name
           datasets: [{
-              label: 'Amount Of Post',
+              label: 'Amount Of Notes In Each Anime',
               backgroundColor: "rgba(151,187,205,0.5)",
-              data: anime_data
+              data: anime_data // anime notes amount for each anime
           }]
       };
 
       window.onload = function() {
           var ctx = document.getElementById("canvas").getContext("2d");
           window.myBar = new Chart(ctx, {
-              type: 'line',
+              type: 'line', // line chart
               data: barChartData,
               options: {
                   elements: {
@@ -41,7 +40,7 @@
                           borderSkipped: 'bottom'
                       }
                   },
-                  responsive: true,
+                  responsive: true, // resize friendly
                   title: {
                       display: true,
                       text: 'Anime'
