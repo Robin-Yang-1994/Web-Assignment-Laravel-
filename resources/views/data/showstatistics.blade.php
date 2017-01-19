@@ -11,6 +11,7 @@
                 <div class="panel-body">
                     <canvas id="canvas" height="280" width="600"></canvas>
 
+ {{--using external java script source--}}
   <script type="text/javascript" src="https://github.com/chartjs/Chart.js/releases/download/v2.4.0/Chart.bundle.js"></script>
   <script>
 
