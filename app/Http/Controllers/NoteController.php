@@ -8,23 +8,23 @@ use Illuminate\Support\Facades\Input;
 
 class NoteController extends Controller
 {
-  public function editNotes(AnimeNote $notes){
+  public function editNotes(AnimeNote $notes){ // load notes to view for the update method
 
     $notes->load('anime'); // note table loads anime table for access to both tables
 
-    return view('note.editNote',compact('notes')); // pass note data from DB to edit view
+    return view('note.editNote',compact('notes'));
   }
 
-  public function updateNotes(Request $request, AnimeNote $notes){
+  public function updateNotes(Request $request, AnimeNote $notes){ // update feature
 
-  $this->validate($request,['body'=>'required']);  //empty body validation
-  $notes->update($request->all()); //get all arguements passed through the view
-  return back(); // refresh page
+  $this->validate($request,['body'=>'required']);  // validation
+  $notes->update($request->all());
+  return back();
   }
 
-  public function deleteNotes(Request $request, AnimeNote $notes){
+  public function deleteNotes(Request $request, AnimeNote $notes){ // delete feature
 
   $notes->delete($request->all()); // delete the notes selected in the view
-  return AnimeController::show(); // show the anime home view
+  return AnimeController::show(); 
   }
 }

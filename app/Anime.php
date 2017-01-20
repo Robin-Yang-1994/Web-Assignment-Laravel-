@@ -14,7 +14,7 @@ class Anime extends Model
   return $this->hasMany(AnimeNote::class); // define 1 to many relationship
   }
 
-  public function addAnimeNote(AnimeNote $animeNote, $userID){
+  public function addAnimeNote(AnimeNote $animeNote, $userID){ // for add feature in Anime Controller
 
   $animeNote->user_id = $userID; //defining user_id object
   return $this->note()->save($animeNote); // add note to anime note table

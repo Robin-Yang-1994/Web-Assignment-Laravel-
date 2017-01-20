@@ -18,7 +18,7 @@ class AnimeNote extends Model
     return $this->belongsTo(User::Class); // 1 to many relation to user class from animeNote
   }
 
-  public function from (User $user) // define user_id
+  public function from (User $user) // define user_id to be called by controller
   {
       $this->user_id = $user->id;
   }

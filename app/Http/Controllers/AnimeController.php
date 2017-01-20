@@ -12,44 +12,46 @@ class AnimeController extends Controller
 {
   public static function show(){ // show all results
 
-    $animes = Anime ::orderBy('created_at', 'desc')->take(5)->get();
-    return view('page.forumHome', compact('animes')); // get anime from DB and show 5 most recent data
+  $animes = Anime ::orderBy('created_at', 'desc')->take(5)->get();
+  return view('page.forumHome', compact('animes'));
+  // get anime from DB and show 5 most recent data
   }
 
   public function animeInformation(Anime $anime){
-
-  $anime->load('note'); // gets the note belong to anime
-
+  // gets the note belong to anime from relationship defined in model
+  $anime->load('note');
   return view('page.forumInformation', compact('anime'));
   }
 
   public function addAnimeInformation(Request $request, Anime $anime, User $user){
+  // add feature
+  // pulls request, gets anime and user model data
 
   $this->validate($request,['body'=>'required']); // validation for empty body (field)
-  $animeNote = new AnimeNote($request->all()); // get all passed request
-  $user = Auth::user()->id; // get the user id from authenticated user session
+  $animeNote = new AnimeNote($request->all());
+  $user = Auth::user()->id; // get the user id from auth middleware
   $anime->addAnimeNote($animeNote, $user); //takes user id and anime note from request
-  return back(); // refresh and update page
+  return back();
 }
 
-  public function searchAnime(Request $request){
+  public function searchAnime(Request $request){ // search feature
 
-    $this->validate($request,['name'=>'required']); // validation for body
-    $search = $request['name']; // get request from search box (name)
+    $this->validate($request,['name'=>'required']);
+    $search = $request['name']; // define the field required from request
     $result = Anime::where('name','LIKE',"%$search%")->get(); // compare with database results
-    return view('page.forumHome')->with('result', $result); // send results to view
+    return view('page.forumHome')->with('result', $result);
   }
 
-  public function showAddForm(){
+  public function showAddForm(){ // show add anime form
 
-    return view('page.addform'); // return all form
+    return view('page.addform');
   }
 
   public function addAnime(Request $request, Anime $anime){
 
-    $this->validate($request,['name' =>'required','year' =>'required']); // validation for empty body (field)
-    $anime = new Anime($request->all()); // get all passed request
+    $this->validate($request,['name' =>'required','year' =>'required']);
+    $anime = new Anime($request->all());
     $anime->save(); // save the requested data to anime
-    return AnimeController::show(); // refresh and update page
+    return AnimeController::show(); // refresh view
   }
 }
