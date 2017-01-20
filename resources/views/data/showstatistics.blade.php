@@ -12,7 +12,7 @@
                     <canvas id="canvas" height="280" width="600"></canvas>
 
  {{--using external java script source--}}
-  <script type="text/javascript" src="https://github.com/chartjs/Chart.js/releases/download/v2.4.0/Chart.bundle.js"></script>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.bundle.js"></script>
   <script>
 
       var anime_name = <?php echo $result; ?>; // set variable
