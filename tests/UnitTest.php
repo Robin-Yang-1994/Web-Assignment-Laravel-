@@ -6,7 +6,7 @@ use Illuminate\Foundation\Testing\DatabaseTransactions;
 
 use App\User;
 
-class ExampleTest extends TestCase
+class UnitTest extends TestCase // Some unit testing with the Login and Register feature
 {
     /**
      * A basic functional test example.
@@ -22,9 +22,9 @@ class ExampleTest extends TestCase
       ->seePageIs('home');
     }
 
-    public function testUserRegistration() // User registration testing (unused, only run once)
-    {
-      $this->visit('/register') // testing adding new users to the database with all expected paths
+    public function testUserRegistration() // user registration testing (unused, only run once)
+    {                                      // test adding user to database
+      $this->visit('/register') // test adding new users to the database with all expected paths
       ->type('test1234', 'name')
       ->type('test1234@hotmail.com','email')
       ->type('test1234','password')
@@ -32,4 +32,5 @@ class ExampleTest extends TestCase
       ->press('Register')
       ->seePageIs('home');
     }
+
 }
