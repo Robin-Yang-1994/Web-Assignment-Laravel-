@@ -3,7 +3,7 @@
 @section('content')
 
 <h1>All Image List</h1>
-@foreach($pictures as $picture) {{--loop out all images in database--}}
+@foreach($pictures as $picture)
     <div class="form-group">
       <a target="_blank" href="{{$picture->filepath.'.jpg'}}">
       <img style="width:300px; height:200px;" src="{{$picture->filepath.'.jpg'}}"/></div>
@@ -12,6 +12,8 @@
     </div> {{--finds and display images saved in the public tmp folder--}}
 @endforeach
 
+@if(Auth::guest())
+@else
 <form action="/upload" method="post" enctype="multipart/form-data"> {{--post image with multiple data form--}}
   {{csrf_field()}}
     <h3>Select image to upload:</h3>
@@ -33,5 +35,5 @@
       <p>{{$sucess()}}</p>
     </div>
 @endif
-
+@endif
 @stop

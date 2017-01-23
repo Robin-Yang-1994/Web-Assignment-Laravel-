@@ -11,9 +11,9 @@ use Illuminate\Http\Request;
 class AccountController extends Controller
 {
   public function showProfile(){
-    if(Auth::check()){ // check auth to pass authenticated user details
+    if(Auth::check()){
       $user = Auth::user()->id;
-      // define user_id from authenticated user, find notes associated with user_id
+      // define user_id from authenticated user (using Auth in Middleware), find notes associated with user_id
 
       $own = AnimeNote::where('user_id', '=', $user)->get();
     return view('accounts.viewAccounts')->with('user', Auth::user())->with('own', $own);

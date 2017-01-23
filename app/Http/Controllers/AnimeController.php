@@ -10,7 +10,7 @@ use Illuminate\Support\Facades\Auth;
 
 class AnimeController extends Controller
 {
-  public static function show(){ // show all results
+  public static function show(){ // show anime
 
   $animes = Anime ::orderBy('created_at', 'desc')->take(5)->get();
   return view('page.forumHome', compact('animes'));

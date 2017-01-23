@@ -11,6 +11,8 @@
 
 U1352883-Advanced Web Programming-Assignment 1-Love Anime
 
+Video link: https://youtu.be/B0O9zrEzb88
+
 Create- Register, Add Anime, Add Anime note- include taking user id to notes
 
 Read- View Anime Note, View Pictures, View User Information

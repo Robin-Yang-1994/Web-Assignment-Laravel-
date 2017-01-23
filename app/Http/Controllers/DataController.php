@@ -22,7 +22,7 @@ class DataController extends Controller // Branched feature and merged to master
       $result = array_column($data, 'name'); // display anime name for each count
 
       return view('data.showstatistics')
-      ->with('count',json_encode($count,JSON_NUMERIC_CHECK)) // retrun count object JSON available
+      ->with('count',json_encode($count,JSON_NUMERIC_CHECK)) // retrun count object to JSON available
       ->with('result',json_encode($result,JSON_NUMERIC_CHECK));
     }
 }

@@ -13,17 +13,13 @@
 
 Route::get('/', 'DeveloperController@developerHome'); //home page
 
-Auth::routes(); //user login or registration authentication
+Auth::routes(); // authentication middleware
 
 Route::get('/home', 'ForumController@forumHome'); //home page for forum
 
 Route::get('/home', 'AnimeController@show'); //show all anime from database
 
-Route::get('home/{anime}', 'AnimeController@animeInformation'); //get anime id for information
-
-Route::get('/dashboard', 'HomeController@index');// defualt view logged in
-
-// Route::post('/logout', 'Auth\LoginController@getLogout');
+Route::get('home/{anime}', 'AnimeController@animeInformation');
 
 //CRUD - Create-Read-Update-Delete
 
@@ -41,7 +37,7 @@ Route::get('/add', 'AnimeController@showAddForm'); // add anime form
 
 Route::post('add/anime', 'AnimeController@addAnime'); // add anime by auth user
 
-//
+// File Upload and Download
 
 Route::post('/profile', 'AccountController@showProfile'); // See profile account and posts
 
@@ -51,4 +47,4 @@ Route::post('/upload', 'AnimePictureController@store'); // saves pictures to dat
 
 // Data Analysis
 
-Route::get('/statistics', 'DataController@showAnimeData'); // show data stats from database
+Route::get('/statistics', 'DataController@showAnimeData'); // show data statistics from database
