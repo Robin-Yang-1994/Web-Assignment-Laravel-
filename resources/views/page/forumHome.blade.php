@@ -12,7 +12,7 @@
   <form action="/home/search" method="post" role="search"> {{--search bar--}}
     {{csrf_field()}}
       <div class="input-group">
-        <input type="text" class="list-group-item" name="name" placeholder="Search Anime">
+        <input type="search" class="list-group-item" name="name" placeholder="Search Anime">
           <button type="submit" class="btn btn-primary">Search</button>
       </div>
   </form></div>

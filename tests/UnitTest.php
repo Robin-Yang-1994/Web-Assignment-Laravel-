@@ -25,12 +25,11 @@ class UnitTest extends TestCase // Some unit testing with the Login and Register
     public function testUserRegistration() // user registration testing (unused, only run once)
     {                                      // test adding user to database
       $this->visit('/register') // test adding new users to the database with all expected paths
-      ->type('test1234', 'name')
-      ->type('test1234@hotmail.com','email')
-      ->type('test1234','password')
-      ->type('test1234','password_confirmation')
+      ->type('test1994', 'name')
+      ->type('test1994@hotmail.com','email')
+      ->type('test1994','password')
+      ->type('test1994','password_confirmation')
       ->press('Register')
       ->seePageIs('home');
     }
-
 }

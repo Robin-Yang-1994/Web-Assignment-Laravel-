@@ -25,6 +25,6 @@ class NoteController extends Controller
   public function deleteNotes(Request $request, AnimeNote $notes){ // delete feature
 
   $notes->delete($request->all()); // delete the notes selected in the view
-  return AnimeController::show(); 
+  return AnimeController::show();
   }
 }
